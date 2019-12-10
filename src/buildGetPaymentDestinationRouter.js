@@ -18,8 +18,7 @@ const validateSignature = async (paymailClient, params) => {
   )
 
   if (!await paymailClient.isValidSignature(message, params.signature, params.senderHandle, params.pubkey)) {
-    console.log('bad signature but I don\'t care')
-    // throw new PaymailError('Wrong signature', HttpStatus.BAD_REQUEST, 'bad-signature')
+    throw new PaymailError('Wrong signature', HttpStatus.BAD_REQUEST, 'bad-signature')
   }
 }
 
