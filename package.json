@@ -2,7 +2,7 @@
   "name": "@moneybutton/express-paymail",
   "version": "0.31.2",
   "description": "Paymail Express implementation",
-  "main": "lib/index.js",
+  "main": "src/index.js",
   "scripts": {
     "build": "babel --copy-files src -d lib",
     "test": "mocha",
