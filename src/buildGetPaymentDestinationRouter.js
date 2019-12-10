@@ -18,7 +18,8 @@ const validateSignature = async (paymailClient, params) => {
   )
 
   if (!await paymailClient.isValidSignature(message, params.signature, params.senderHandle, params.pubkey)) {
-    throw new PaymailError('Wrong signature', HttpStatus.BAD_REQUEST, 'bad-signature')
+    console.log('bad signature but I don\'t care')
+    // throw new PaymailError('Wrong signature', HttpStatus.BAD_REQUEST, 'bad-signature')
   }
 }
 
@@ -52,6 +53,7 @@ const buildGetPaymentDestinationRouter = (config, ifPresent) => {
   if (config.getPaymentDestination) {
     const router = express.Router()
     router.post('/address/:paymail', checkContentType, asyncHandler(async (req, res) => {
+      console.log('/address/:paymail hit')
       const [name, domain] = req.params.paymail.split('@')
       const validateSignature = config.requestSenderValidation
       await validateRequest(req.body, config.paymailClient, validateSignature)
