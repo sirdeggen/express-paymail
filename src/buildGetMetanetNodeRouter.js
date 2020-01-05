@@ -48,7 +48,7 @@ const checkContentType = (req, res, next) => {
   next()
 }
 
-const buildGetPaymentDestinationRouter = (config, ifPresent) => {
+const buildGetMetanetNodeRouter = (config, ifPresent) => {
   if (config.getPaymentDestination) {
     const router = express.Router()
     router.post('/address/:paymail', checkContentType, asyncHandler(async (req, res) => {
@@ -70,4 +70,4 @@ const buildGetPaymentDestinationRouter = (config, ifPresent) => {
   }
 }
 
-export { buildGetPaymentDestinationRouter }
+export { buildGetMetanetNodeRouter }
